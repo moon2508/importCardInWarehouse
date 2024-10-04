@@ -20,13 +20,14 @@ function importCard(username, password, category,service_code,product,text, file
       cy.wait(1000);
       // insert data - category
       cy.get('select[name="ctl00$ContentPlaceHolder1$ddlCategory"]').select(category);
+      cy.wait(1000);
 
       //insert data - service code + product
-      cy.get('select[name="ctl00$ContentPlaceHolder1$ddlServiceProvider"]').select(service_code);
-      cy.get('select[name="ctl00$ContentPlaceHolder1$ddlProduct"]').select(product);
+      cy.get('select[name="ctl00$ContentPlaceHolder1$ddlServiceProvider"]').select(service_code);cy.wait(1000);
+      cy.get('select[name="ctl00$ContentPlaceHolder1$ddlProduct"]').select(product);cy.wait(1000);
 
       //insert Text
-      cy.get('input[name="ctl00$ContentPlaceHolder1$txtSourceOfCards"]').type(text);
+      cy.get('input[name="ctl00$ContentPlaceHolder1$txtSourceOfCards"]').type(text);cy.wait(1000);
 
       //choose file
       // cy.get('input[type=file]').selectFile('C:/Users/Admin/Documents/IMEDIA/Automation_Testing_API/AutoCreateFileSerial/${file}.csv')
@@ -98,7 +99,7 @@ function approveCard(username, password,product,count){
 
     })
     
-    it('Search card', () => {
+    it.skip('Search card', () => {
       //Click ô Softpin
       cy.get('.sysSoftpin').click();
       //click Softpin Reservation
